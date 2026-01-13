@@ -1,0 +1,460 @@
+:root {
+    --bg-color: #202028;
+    --border-color: #ffffff;
+    --text-color: #ffffff;
+    --accent-blue: #3d5af1;
+    --accent-green: #50c878;
+    --accent-red: #e03e3e;
+    --accent-yellow: #f1c40f;
+    --font-heading: 'Press Start 2P', cursive;
+    --font-body: 'VT323', monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    background-image:
+        linear-gradient(rgba(18, 16, 16, 0.8) 50%, transparent 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, transparent 60%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+    z-index: 100;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.box-border {
+    border: 4px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    position: relative;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
+    /* Corner decorations */
+    clip-path: polygon(0 10px, 10px 10px, 10px 0,
+            calc(100% - 10px) 0, calc(100% - 10px) 10px, 100% 10px,
+            100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px), calc(100% - 10px) 100%,
+            10px 100%, 10px calc(100% - 10px), 0 calc(100% - 10px));
+    border-image-slice: 2;
+    /* Fallback */
+}
+
+/* Header */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+}
+
+.blink-text {
+    animation: blink 1.5s infinite;
+    color: var(--accent-yellow);
+    font-size: 1.5rem;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.top-stats {
+    display: flex;
+    gap: 20px;
+    font-size: 1.4rem;
+}
+
+/* Grid Layout */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* 3 Columns */
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .game-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .top-stats {
+        font-size: 0.9rem;
+    }
+
+    .inv-item {
+        width: 60px;
+        height: 60px;
+    }
+
+    .inv-item i {
+        font-size: 1.2rem;
+    }
+
+    .inv-item span {
+        font-size: 0.6rem;
+    }
+}
+
+/* Character Card */
+.char-card {
+    text-align: center;
+    background: #2a2a35;
+}
+
+.char-photo-frame {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border: 4px solid #fff;
+    overflow: hidden;
+    filter: grayscale(0.5);
+}
+
+.pixel-img {
+    width: 100%;
+    height: auto;
+}
+
+.class-title {
+    color: var(--accent-blue);
+    margin-bottom: 5px;
+}
+
+.sub-class {
+    color: #aaa;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.level-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+}
+
+.xp-bar-container {
+    flex-grow: 1;
+    height: 15px;
+    background: #444;
+    border: 2px solid #fff;
+}
+
+.xp-bar {
+    height: 100%;
+    background: var(--accent-yellow);
+}
+
+.char-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.retro-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 #444;
+    transition: transform 0.1s;
+}
+
+.retro-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #444;
+}
+
+.blue-btn {
+    background: var(--accent-blue);
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Stats Panel */
+.stats-panel h3 {
+    font-size: 1rem;
+    border-bottom: 2px dashed #666;
+    padding-bottom: 10px;
+}
+
+.stats-list {
+    list-style: none;
+    padding: 0;
+}
+
+.stats-list li {
+    margin-bottom: 15px;
+}
+
+.stat-name {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-bar-container {
+    height: 20px;
+    background: #000;
+    border: 2px solid #555;
+    position: relative;
+}
+
+.stat-bar {
+    height: 100%;
+    color: #000;
+    text-align: right;
+    padding-right: 5px;
+    font-size: 0.9rem;
+    line-height: 16px;
+    font-weight: bold;
+}
+
+.fill-green {
+    background: var(--accent-green);
+}
+
+.fill-blue {
+    background: var(--accent-blue);
+}
+
+.fill-red {
+    background: var(--accent-red);
+}
+
+.fill-yellow {
+    background: var(--accent-yellow);
+}
+
+.fill-purple {
+    background: #9b59b6;
+}
+
+/* Quest Log */
+.quest-log h3 {
+    font-size: 1rem;
+    color: var(--accent-yellow);
+}
+
+.quest-item {
+    margin-bottom: 20px;
+    border-left: 4px solid #fff;
+    padding-left: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+}
+
+.quest-status {
+    font-family: var(--font-heading);
+    font-size: 0.6rem;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.status-active {
+    background: var(--accent-green);
+    color: #000;
+}
+
+.status-complete {
+    background: #555;
+    color: #aaa;
+}
+
+.quest-item h4 {
+    margin: 10px 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.quest-desc {
+    color: #ccc;
+    font-size: 1rem;
+}
+
+/* Inventory */
+.inventory h3 {
+    font-size: 1rem;
+}
+
+.inventory-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.inv-item {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #fff;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s;
+    text-decoration: none;
+    color: #fff;
+}
+
+.inv-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-yellow);
+}
+
+.inv-item i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.inv-item span {
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+.item-rare {
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+}
+
+.social-links-retro {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+}
+
+.social-links-retro a {
+    color: #fff;
+    transition: color 0.2s;
+}
+
+.social-links-retro a:hover {
+    color: var(--accent-green);
+}
+
+/* New Content Styles */
+.quest-desc-list {
+    margin: 10px 0 0 0;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+    font-family: sans-serif;
+    /* Readable font for long text */
+    line-height: 1.4;
+}
+
+.quest-desc-list li {
+    margin-bottom: 5px;
+}
+
+.cert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cert-list li {
+    background: rgba(61, 90, 241, 0.2);
+    border: 1px solid var(--accent-blue);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+}
+
+.retro-link-block {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.retro-link-block:hover {
+    transform: scale(1.01);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.click-hint {
+    text-align: right;
+    font-size: 0.7rem;
+    color: var(--accent-yellow);
+    margin-top: 5px;
+    animation: blink 2s infinite;
+}
+
+/* Text Color Utilities */
+.text-orange {
+    color: #ffaa00;
+}
+
+.text-red {
+    color: #ff5555;
+}
+
+.text-green {
+    color: #50c878;
+}
+
+.text-light-green {
+    color: #90ee90;
+}
