@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikesh Nakarmi - Retro Profile</title>
+    <!-- Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/retro.css">
+</head>
+
+<body>
+
+    <div class="screen-overlay"></div>
+
+    <div class="container">
+        <!-- Main Header -->
+        <header class="game-header box-border">
+            <h1 class="blink-text">PLAYER SELECT</h1>
+            <div class="top-stats">
+                <span>CREDITS: 99</span>
+                <span>TIME: <span id="clock">00:00</span></span>
+            </div>
+        </header>
+
+        <div class="main-grid">
+
+            <!-- Character Card (Left Column) -->
+            <section class="char-card box-border">
+                <div class="char-photo-frame">
+                    <img src="assets/img/NN.HEIC" alt="Nikesh Nakarmi" class="pixel-img">
+                </div>
+                <div class="char-info">
+                    <h2>NIKESH NAKARMI</h2>
+                    <p class="class-title">CLASS: DEVOPS ENGINEER</p>
+                    <p class="sub-class">SUB: SRE / SYSADMIN</p>
+                    <div class="level-bar">
+                        <span>LVL 28</span>
+                        <div class="xp-bar-container">
+                            <div class="xp-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="char-actions">
+                    <a href="index.html" class="retro-btn">MAIN MENU</a>
+                    <a href="mailto:nikeshn.nn@gmail.com" class="retro-btn blue-btn">CONTACT</a>
+                </div>
+            </section>
+
+            <!-- Stats/Skills (Middle Column) -->
+            <section class="stats-panel box-border">
+                <h3><i class="bi bi-cpu"></i> SKILL STATS</h3>
+                <ul class="stats-list">
+                    <li>
+                        <span class="stat-name">YAML (CI/CD)</span>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar fill-green" style="width: 90%">90/100</div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="stat-name">AZURE CLOUD</span>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar fill-blue" style="width: 85%">85/100</div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="stat-name">WIN SERVER</span>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar fill-red" style="width: 75%">75/100</div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="stat-name">PROJECT MGT</span>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar fill-yellow" style="width: 70%">70/100</div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="stat-name">TROUBLESHOOT</span>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar fill-purple" style="width: 70%">70/100</div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Quest Log / Experience (Right Column / Bottom) -->
+            <section class="quest-log box-border">
+                <h3><i class="bi bi-journal-bookmark"></i> QUEST LOG (EXPERIENCE)</h3>
+
+                <!-- Job 1 -->
+                <div class="quest-item">
+                    <span class="quest-status status-active">CURRENT QUEST</span>
+                    <h4>DevOps Engineer | <span class="text-orange">Bitskraft Pvt Ltd</span></h4>
+                    <p class="quest-loc"><i class="bi bi-calendar3"></i> Dec 1, 2023 - Present</p>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="quest-item">
+                    <span class="quest-status status-complete">COMPLETED</span>
+                    <h4>System Administrator | <span class="text-red">Hitachi Energy</span> (<span
+                            class="text-light-green">Pioneer Solutions Nepal</span>)</h4>
+                    <p class="quest-loc"><i class="bi bi-calendar3"></i> Aug 31, 2022 – Nov 31, 2023</p>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="quest-item">
+                    <span class="quest-status status-complete">COMPLETED</span>
+                    <h4>Associate System Admin | <span class="text-red">Hitachi Energy</span> (<span
+                            class="text-light-green">Pioneer Solutions Nepal</span>)</h4>
+                    <p class="quest-loc"><i class="bi bi-calendar3"></i> Aug 01, 2019 - Aug 31, 2022</p>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="quest-item">
+                    <span class="quest-status status-complete">COMPLETED</span>
+                    <h4>Internship Trainee | <span class="text-red">Hitachi Energy</span> (<span
+                            class="text-light-green">Pioneer Solutions Nepal</span>)</h4>
+                    <p class="quest-loc"><i class="bi bi-calendar3"></i> May 01, 2019 - Aug 01, 2019</p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Inventory / Contact -->
+        <section class="inventory box-border">
+            <h3><i class="bi bi-bag"></i> INVENTORY (PROJECTS)</h3>
+            <div class="inventory-grid">
+                <div class="inv-item" title="Cloud Migration">
+                    <i class="bi bi-cloud-upload"></i>
+                    <span>MIGRATION</span>
+                </div>
+                <div class="inv-item" title="Auto-Scaling Pipeline">
+                    <i class="bi bi-diagram-3"></i>
+                    <span>PIPELINE</span>
+                </div>
+                <div class="inv-item" title="Secure Gateway">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>GATEWAY</span>
+                </div>
+                <a href="Nikesh Nakarmi.pdf" target="_blank" class="inv-item item-rare" title="Download Resume">
+                    <i class="bi bi-file-earmark-pdf"></i>
+                    <span>RESUME.PDF</span>
+                </a>
+            </div>
+
+            <!-- Certifications Section -->
+            <div class="certs-section" style="margin-top: 20px; border-top: 2px dashed #666; padding-top: 15px;">
+                <h3><i class="bi bi-award"></i> ACHIEVEMENTS (CERTS)</h3>
+                <a href="https://www.credly.com/users/nikesh-nakarmi/edit#credly" target="_blank"
+                    class="retro-link-block">
+                    <ul class="cert-list">
+                        <li><i class="bi bi-patch-check"></i> Azure Fundamentals (AZ-900)</li>
+                        <li><i class="bi bi-patch-check"></i> AWS Certified Solutions Architect</li>
+                        <li><i class="bi bi-patch-check"></i> Git for DevOps & GitHub</li>
+                        <li><i class="bi bi-patch-check"></i> Azure Administrator: AD Management</li>
+                        <li><i class="bi bi-patch-check"></i> Docker Compose</li>
+                        <li><i class="bi bi-shield-check"></i> CISCO: Intro to Cybersecurity</li>
+                        <li><i class="bi bi-cloud-check"></i> AWS Educate (Cloud 101, Ops, Security)</li>
+                    </ul>
+                    <div class="click-hint">[CLICK TO VERIFY CREDLY]</div>
+                </a>
+            </div>
+
+            <div class="social-links-retro">
+                <a href="https://www.facebook.com/nnikesh.nnakarmi/" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/nnikeshn/" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/nikesh-nakarmi-3aa458163/" target="_blank"><i
+                        class="bi bi-linkedin"></i></a>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Simple Clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('clock').innerText = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+
+</html>

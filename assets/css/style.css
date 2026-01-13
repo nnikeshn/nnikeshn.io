@@ -6,11 +6,71 @@
 */
 
 /*--------------------------------------------------------------
-# General
+# General Information
+--------------------------------------------------------------*/
+:root {
+  --bg-color: #f5f5f5;
+  --card-bg: #fff;
+  --text-main: #4e4e4e;
+  --text-heading: #1e1e1e;
+  --primary: #0078ff;
+  --primary-rgb: 0, 120, 255;
+  --primary-light: #cde1f8;
+  --primary-dark: #0062d3;
+  --white: #fff;
+  --nav-bg: rgba(0, 0, 0, 0.9);
+  --overlay-color: rgba(0, 0, 0, 0.6);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-main: #d0d0d0;
+  --text-heading: #f0f0f0;
+  --white: #fff;
+  /* Keep white as white for specific contrast needs, or adjust if needed */
+  --shadow-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Dark mode specific overrides for complex elements */
+body.dark-mode .service-box,
+body.dark-mode .work-box,
+body.dark-mode .card-blog,
+body.dark-mode .box-shadow-full,
+body.dark-mode .testimonial-box,
+body.dark-mode .contact-mf .box-shadow-full {
+  background-color: var(--card-bg);
+  box-shadow: 0 13px 8px -10px var(--shadow-color);
+}
+
+body.dark-mode .box-shadow-full {
+  background-color: var(--card-bg);
+}
+
+body.dark-mode .title-s {
+  color: var(--text-heading);
+}
+
+body.dark-mode .navbar-mobile {
+  background: rgba(30, 30, 30, 0.95);
+}
+
+body.dark-mode .navbar-mobile ul {
+  background-color: var(--card-bg);
+}
+
+body.dark-mode .navbar-mobile a {
+  color: var(--text-main);
+}
+
+/*--------------------------------------------------------------
+# General body
 --------------------------------------------------------------*/
 body {
-  background-color: #f5f5f5;
-  color: #4e4e4e;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -19,17 +79,17 @@ h3,
 h4,
 h5,
 h6 {
-  color: #1e1e1e;
+  color: var(--text-heading);
 }
 
 a {
-  color: #1e1e1e;
+  color: var(--text-heading);
   text-decoration: none;
   transition: all 0.5s ease-in-out;
 }
 
 a:hover {
-  color: #0078ff;
+  color: var(--primary);
   text-decoration: none;
   transition: all 0.5s ease-in-out;
 }
@@ -40,7 +100,7 @@ a:hover {
 
 .color-a {
   text-decoration: none;
-  color: #0078ff;
+  color: var(--primary);
 }
 
 .color-d {
@@ -49,16 +109,21 @@ a:hover {
 
 .color-text-a {
   text-decoration: none;
-  color: #4e4e4e;
+  color: var(--text-main);
 }
 
-.box-shadow, .paralax-mf, .service-box, .work-box, .card-blog {
-  box-shadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
+.box-shadow,
+.paralax-mf,
+.service-box,
+.work-box,
+.card-blog {
+  box-shadow: 0 13px 8px -10px var(--shadow-color);
 }
 
-.box-shadow-a, .button:hover {
+.box-shadow-a,
+.button:hover {
   text-decoration: none;
-  box-shadow: 0 0 0 4px #cde1f8;
+  box-shadow: 0 0 0 4px var(--primary-light);
 }
 
 .display-5 {
@@ -94,7 +159,7 @@ a:hover {
 }
 
 .overlay-mf {
-  background-color: #0078ff;
+  background-color: var(--primary);
 }
 
 .overlay-mf {
@@ -139,7 +204,7 @@ a:hover {
 /*--/ Title s /--*/
 .title-s {
   font-weight: 600;
-  color: #1e1e1e;
+  color: var(--text-heading);
   font-size: 1.1rem;
 }
 
@@ -157,13 +222,13 @@ a:hover {
 
 .subtitle-a {
   text-decoration: none;
-  color: #4e4e4e;
+  color: var(--text-main);
 }
 
 .line-mf {
   width: 40px;
   height: 5px;
-  background-color: #0078ff;
+  background-color: var(--primary);
   margin: 0 auto;
 }
 
@@ -175,13 +240,14 @@ a:hover {
 .title-left {
   font-size: 2rem;
   position: relative;
+  color: var(--text-heading);
 }
 
 .title-left:before {
   content: '';
   position: absolute;
   height: 3px;
-  background-color: #0078ff;
+  background-color: var(--primary);
   width: 100px;
   bottom: -12px;
 }
@@ -194,7 +260,7 @@ a:hover {
 .box-shadow-full {
   padding: 3rem 1.25rem;
   position: relative;
-  background-color: #fff;
+  background-color: var(--card-bg);
   margin-bottom: 3rem;
   z-index: 2;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
@@ -222,19 +288,25 @@ a:hover {
   border-radius: 50%;
   line-height: 1.6;
   margin: 0 15px 0 0;
-  box-shadow: 0 0 0 3px #0078ff;
+  box-shadow: 0 0 0 3px var(--primary);
   transition: all 500ms ease;
 }
 
 .socials .ico-circle:hover {
-  background-color: #0078ff;
+  background-color: var(--primary);
   color: #fff;
-  box-shadow: 0 0 0 3px #cde1f8;
+  box-shadow: 0 0 0 3px var(--primary-light);
   transition: all 500ms ease;
 }
 
 /*------/ Ul resect /------*/
-.ul-resect, .socials ul, .list-ico, .blog-wrapper .post-meta ul, .box-comments .list-comments, .widget-sidebar .list-sidebar, .widget-tags ul {
+.ul-resect,
+.socials ul,
+.list-ico,
+.blog-wrapper .post-meta ul,
+.box-comments .list-comments,
+.widget-sidebar .list-sidebar,
+.widget-tags ul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
@@ -245,7 +317,7 @@ a:hover {
 }
 
 .list-ico span {
-  color: #0078ff;
+  color: var(--primary);
   margin-right: 10px;
 }
 
@@ -258,7 +330,7 @@ a:hover {
   line-height: 1.55;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 0 0 0 10px #0078ff;
+  box-shadow: 0 0 0 10px var(--primary);
   display: block;
 }
 
@@ -276,15 +348,15 @@ a:hover {
   width: 18px;
   height: 7px;
   margin: 5px 5px;
-  background: #cde1f8;
-  border: 0px solid #cde1f8;
+  background: var(--primary-light);
+  border: 0px solid var(--primary-light);
   display: block;
   transition: all 0.6s ease-in-out;
   cursor: pointer;
 }
 
 .owl-theme .owl-dots .owl-dot:hover span {
-  background-color: #cde1f8;
+  background-color: var(--primary-light);
 }
 
 .owl-theme .owl-dots .owl-dot.active span {
@@ -303,7 +375,7 @@ a:hover {
   position: fixed;
   width: 42px;
   height: 42px;
-  background-color: #0078ff;
+  background-color: var(--primary);
   opacity: .7;
   font-size: 1.6rem;
   line-height: 1.5;
@@ -327,7 +399,7 @@ a:hover {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #0078ff;
+  background: var(--primary);
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -368,7 +440,7 @@ a:hover {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #f2f2f2;
-  border-top: 6px solid #0078ff;
+  border-top: 6px solid var(--primary);
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -380,6 +452,7 @@ a:hover {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -389,6 +462,7 @@ a:hover {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -415,16 +489,16 @@ a:hover {
 }
 
 .button:hover {
-  background-color: #0062d3;
+  background-color: var(--primary-dark);
   color: #fff;
   transition: all 500ms ease;
 }
 
 .button-a {
   text-decoration: none;
-  background-color: #0078ff;
+  background-color: var(--primary);
   color: #fff;
-  border-color: #cde1f8;
+  border-color: var(--primary-light);
 }
 
 .button-big {
@@ -464,12 +538,18 @@ a:hover {
   color: #fff;
 }
 
+@media (max-width: 768px) {
+  #header .logo {
+    font-size: 24px;
+  }
+}
+
 #header .logo img {
   max-height: 40px;
 }
 
 #header.header-scrolled {
-  background: rgba(0, 0, 0, 0.9);
+  background: var(--nav-bg);
   padding: 12px 0;
 }
 
@@ -495,7 +575,7 @@ a:hover {
   position: relative;
 }
 
-.navbar > ul > li {
+.navbar>ul>li {
   white-space: nowrap;
   padding: 10px 0 10px 30px;
 }
@@ -521,7 +601,7 @@ a:hover {
   margin-left: 5px;
 }
 
-.navbar > ul > li > a:before {
+.navbar>ul>li>a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -534,12 +614,16 @@ a:hover {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.navbar a:hover:before, .navbar li:hover > a:before, .navbar .active:before {
+.navbar a:hover:before,
+.navbar li:hover>a:before,
+.navbar .active:before {
   visibility: visible;
   width: 80%;
 }
 
-.navbar a:hover, .navbar .active, .navbar li:hover > a {
+.navbar a:hover,
+.navbar .active,
+.navbar li:hover>a {
   color: #fff;
 }
 
@@ -553,7 +637,7 @@ a:hover {
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  background: #fff;
+  background: var(--card-bg);
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
 }
@@ -566,18 +650,20 @@ a:hover {
   padding: 10px 20px;
   font-size: 14px;
   text-transform: none;
-  color: #4e4e4e;
+  color: var(--text-main);
 }
 
 .navbar .dropdown ul a i {
   font-size: 12px;
 }
 
-.navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #0078ff;
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  color: var(--primary);
 }
 
-.navbar .dropdown:hover > ul {
+.navbar .dropdown:hover>ul {
   opacity: 1;
   top: 100%;
   visibility: visible;
@@ -589,7 +675,7 @@ a:hover {
   visibility: hidden;
 }
 
-.navbar .dropdown .dropdown:hover > ul {
+.navbar .dropdown .dropdown:hover>ul {
   opacity: 1;
   top: 0;
   left: 100%;
@@ -600,7 +686,8 @@ a:hover {
   .navbar .dropdown .dropdown ul {
     left: -90%;
   }
-  .navbar .dropdown .dropdown:hover > ul {
+
+  .navbar .dropdown .dropdown:hover>ul {
     left: -100%;
   }
 }
@@ -621,6 +708,7 @@ a:hover {
   .mobile-nav-toggle {
     display: block;
   }
+
   .navbar ul {
     display: none;
   }
@@ -652,27 +740,31 @@ a:hover {
   bottom: 15px;
   left: 15px;
   padding: 10px 0;
-  background-color: #fff;
+  background-color: var(--card-bg);
   overflow-y: auto;
   transition: 0.3s;
 }
 
-.navbar-mobile > ul > li {
+.navbar-mobile>ul>li {
   padding: 0;
 }
 
-.navbar-mobile a:hover:before, .navbar-mobile li:hover > a:before, .navbar-mobile .active:before {
+.navbar-mobile a:hover:before,
+.navbar-mobile li:hover>a:before,
+.navbar-mobile .active:before {
   visibility: hidden;
 }
 
 .navbar-mobile a {
   padding: 10px 20px;
   font-size: 15px;
-  color: #4e4e4e;
+  color: var(--text-main);
 }
 
-.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #0078ff;
+.navbar-mobile a:hover,
+.navbar-mobile .active,
+.navbar-mobile li:hover>a {
+  color: var(--primary);
 }
 
 .navbar-mobile .getstarted {
@@ -687,7 +779,7 @@ a:hover {
   z-index: 99;
   opacity: 1;
   visibility: visible;
-  background: #fff;
+  background: var(--card-bg);
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
 }
 
@@ -703,11 +795,13 @@ a:hover {
   font-size: 12px;
 }
 
-.navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #0078ff;
+.navbar-mobile .dropdown ul a:hover,
+.navbar-mobile .dropdown ul .active:hover,
+.navbar-mobile .dropdown ul li:hover>a {
+  color: var(--primary);
 }
 
-.navbar-mobile .dropdown > .dropdown-active {
+.navbar-mobile .dropdown>.dropdown-active {
   display: block;
 }
 
@@ -726,7 +820,7 @@ a:hover {
 }
 
 .hero .overlay-itro {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--overlay-color);
   position: absolute;
   top: 0;
   left: 0px;
@@ -784,15 +878,15 @@ a:hover {
 
 .hero-single .breadcrumb {
   background-color: transparent;
-  color: #0078ff;
+  color: var(--primary);
 }
 
 .hero-single .breadcrumb .breadcrumb-item:before {
-  color: #cde1f8;
+  color: var(--primary-light);
 }
 
 .hero-single .breadcrumb .breadcrumb-item.active {
-  color: #cde1f8;
+  color: var(--primary-light);
 }
 
 .hero-single .breadcrumb a {
@@ -823,11 +917,11 @@ a:hover {
 }
 
 .skill-mf span {
-  color: #4e4e4e;
+  color: var(--text-main);
 }
 
 .skill-mf .progress {
-  background-color: #cde1f8;
+  background-color: var(--primary-light);
   margin: .5rem 0 1.2rem 0;
   border-radius: 0;
   height: .7rem;
@@ -835,14 +929,14 @@ a:hover {
 
 .skill-mf .progress .progress-bar {
   height: .7rem;
-  background-color: #0078ff;
+  background-color: var(--primary);
 }
 
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
 .service-box {
-  background-color: #fff;
+  background-color: var(--card-bg);
   padding: 2.5rem 1.3rem;
   border-radius: 1rem;
   margin-bottom: 3rem;
@@ -852,13 +946,13 @@ a:hover {
 .service-box:hover .ico-circle {
   transition: all 500ms ease;
   color: #fff;
-  background-color: #0078ff;
-  box-shadow: 0 0 0 10px #cde1f8;
+  background-color: var(--primary);
+  box-shadow: 0 0 0 10px var(--primary-light);
 }
 
 .service-box .service-ico {
   margin-bottom: 1rem;
-  color: #1e1e1e;
+  color: var(--text-heading);
 }
 
 .service-box .ico-circle {
@@ -881,7 +975,7 @@ a:hover {
 }
 
 .service-box .s-description {
-  color: #4e4e4e;
+  color: var(--text-main);
 }
 
 /*--------------------------------------------------------------
@@ -906,7 +1000,7 @@ a:hover {
   height: 60px;
   width: 60px;
   line-height: 1.5;
-  box-shadow: 0 0 0 10px #cde1f8;
+  box-shadow: 0 0 0 10px var(--primary-light);
 }
 
 .counter-num .counter {
@@ -921,7 +1015,7 @@ a:hover {
   margin-bottom: 3rem;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: #fff;
+  background-color: var(--card-bg);
 }
 
 .work-box:hover img {
@@ -942,22 +1036,22 @@ a:hover {
 }
 
 .work-content .w-more {
-  color: #4e4e4e;
+  color: var(--text-main);
   font-size: .8rem;
 }
 
 .work-content .w-more .w-ctegory {
-  color: #0078ff;
+  color: var(--primary);
 }
 
 .work-content .w-like {
   font-size: 2.5rem;
-  color: #0078ff;
+  color: var(--primary);
   float: right;
 }
 
 .work-content .w-like a {
-  color: #0078ff;
+  color: var(--primary);
 }
 
 .work-content .w-like .num-like {
@@ -966,6 +1060,7 @@ a:hover {
 
 .w-title {
   font-size: 1.2rem;
+  color: var(--text-heading);
 }
 
 /*--------------------------------------------------------------
@@ -989,11 +1084,11 @@ a:hover {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #0078ff;
+  border: 1px solid var(--primary);
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #0078ff;
+  background-color: var(--primary);
 }
 
 .portfolio-details .portfolio-info {
@@ -1015,7 +1110,7 @@ a:hover {
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li + li {
+.portfolio-details .portfolio-info ul li+li {
   margin-top: 10px;
 }
 
@@ -1060,7 +1155,7 @@ a:hover {
 
 .testimonial-box .comit {
   font-size: 2rem;
-  color: #0078ff;
+  color: var(--primary);
   background-color: #fff;
   width: 52px;
   height: 52px;
@@ -1160,14 +1255,16 @@ a:hover {
   animation: animate-loading 1s linear infinite;
 }
 
-.php-email-form input, .php-email-form textarea {
+.php-email-form input,
+.php-email-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
 }
 
-.php-email-form input:focus, .php-email-form textarea:focus {
-  border-color: #0078ff;
+.php-email-form input:focus,
+.php-email-form textarea:focus {
+  border-color: var(--primary);
 }
 
 .php-email-form input {
@@ -1180,7 +1277,7 @@ a:hover {
 }
 
 .php-email-form button[type="submit"] {
-  background: #0078ff;
+  background: var(--primary);
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -1195,6 +1292,7 @@ a:hover {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -1204,6 +1302,7 @@ a:hover {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -1237,7 +1336,7 @@ a:hover {
   color: #fff;
   padding: 0 15px 5px;
   overflow: hidden;
-  background-color: #0078ff;
+  background-color: var(--primary);
   border-radius: 4px;
 }
 
@@ -1256,7 +1355,7 @@ a:hover {
 }
 
 .card-blog .card-description {
-  color: #4e4e4e;
+  color: var(--text-main);
 }
 
 .card-blog .post-author {
@@ -1264,7 +1363,7 @@ a:hover {
 }
 
 .card-blog .post-date {
-  color: #4e4e4e;
+  color: var(--text-main);
   display: inline-block;
   float: right;
 }
@@ -1277,11 +1376,12 @@ a:hover {
 .box-comments,
 .widget-sidebar {
   padding: 2rem;
-  background-color: #fff;
+  background-color: var(--card-bg);
   margin-bottom: 3rem;
 }
 
 @media (min-width: 768px) {
+
   .post-box,
   .form-comments,
   .box-comments,
@@ -1292,6 +1392,7 @@ a:hover {
 
 .blog-wrapper .article-title {
   font-size: 1.5rem;
+  color: var(--text-heading);
 }
 
 @media (min-width: 768px) {
@@ -1305,7 +1406,7 @@ a:hover {
 }
 
 .blog-wrapper .post-meta ul {
-  border-left: 4px solid #0078ff;
+  border-left: 4px solid var(--primary);
   margin-top: 1rem;
 }
 
@@ -1315,17 +1416,18 @@ a:hover {
 }
 
 .blog-wrapper .post-meta ul a {
-  color: #0078ff;
+  color: var(--primary);
 }
 
 .blog-wrapper .post-meta ul span {
-  color: #1e1e1e;
+  color: var(--text-heading);
 }
 
 .blog-wrapper .blockquote {
-  border-left: 4px solid #0078ff;
+  border-left: 4px solid var(--primary);
   padding: 18px;
   font-style: italic;
+  color: var(--text-main);
 }
 
 /*------/ Comments /------*/
@@ -1345,6 +1447,7 @@ a:hover {
 
 .box-comments .list-comments .comment-author {
   font-size: 1.3rem;
+  color: var(--text-heading);
 }
 
 @media (min-width: 768px) {
@@ -1360,11 +1463,11 @@ a:hover {
 }
 
 .box-comments .list-comments a {
-  color: #0078ff;
+  color: var(--primary);
 }
 
 .box-comments .list-comments span {
-  color: #1e1e1e;
+  color: var(--text-heading);
   font-style: italic;
 }
 
@@ -1376,10 +1479,11 @@ a:hover {
 .widget-sidebar .sidebar-title {
   font-size: 1.6rem;
   font-weight: 600;
-  border-left: 5px solid #0078ff;
+  border-left: 5px solid var(--primary);
   padding-left: 15px;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
+  color: var(--text-heading);
 }
 
 .widget-sidebar .list-sidebar li {
@@ -1393,7 +1497,7 @@ a:hover {
   width: 10px;
   height: 1px;
   left: 0;
-  background-color: #0078ff;
+  background-color: var(--primary);
   top: 20px;
 }
 
@@ -1404,8 +1508,8 @@ a:hover {
 }
 
 .sidebar-search .btn-search {
-  background-color: #0078ff;
-  border-color: #0078ff;
+  background-color: var(--primary);
+  border-color: var(--primary);
   border-radius: 0;
   padding-left: 20px;
   padding-right: 20px;
@@ -1413,7 +1517,7 @@ a:hover {
 
 .widget-tags ul li {
   display: inline-block;
-  background-color: #0078ff;
+  background-color: var(--primary);
   padding: .2rem .6rem;
   margin-bottom: .5rem;
   border-radius: 15px;
@@ -1430,7 +1534,7 @@ footer {
   text-align: center;
   color: #fff;
   padding: 25px 0;
-  background: #0062d3;
+  background: var(--primary-dark);
 }
 
 footer .copyright {
